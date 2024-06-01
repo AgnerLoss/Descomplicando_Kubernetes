@@ -4,12 +4,14 @@ metadata:
   labels: 
     app: nginx-deployment    
   name: nginx-deployment
+  namespace: giropops
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       app: nginx-deployment
-  strategy: {}        
+  strategy: 
+    type: Recreate    
   template:
     metadata:
       labels:
@@ -17,11 +19,11 @@ spec:
         editor: vscode
     spec:
       containers:
-      - image: nginx
+      - image: nginx:1.16.0
         name: nginx
         resources:
           limits:
-            cpu: 0.5
+            cpu: 0.5    
             memory: 256Mi
           requests:
             cpu: 0.3
