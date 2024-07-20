@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: k8sloss.com.br
+  - host: giropops.k8sloss.com.br
     http:
       paths:
       - path: /
