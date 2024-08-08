@@ -4,8 +4,21 @@ metadata:
   name: giropops-senhas
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    # nginx.ingress.kubernetes.io/auth-type: "basic"
+    # nginx.ingress.kubernetes.io/auth-secret: "giropops-senhas-users"
+    # nginx.ingress.kubernetes.io/auth-realm: "Autenticação necessária"
+    # nginx.ingress.kubernetes.io/affinity: "cookie"
+    # nginx.ingress.kubernetes.io/session-cookie-name: "giropops-cookie"
+    # nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
+    # nginx.ingress.kubernetes.io/canary: "true"
+    # nginx.ingress.kubernetes.io/canary-weight: "10"          
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - giropops.k8sloss.com.br
+    secretName: giropops-containers-expert-tls
   rules:
   - host: giropops.k8sloss.com.br
     http:
