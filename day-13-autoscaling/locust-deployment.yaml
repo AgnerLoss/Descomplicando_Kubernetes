@@ -25,7 +25,7 @@ spec:
         imagePullPolicy: Always
         volumeMounts:
         - name: locust-scripts
-          mountPath: /usr/src/app/scripts
+          mountPath: /usr/src/app/scripts       
       volumes:
       - name: locust-scripts
         configMap:
